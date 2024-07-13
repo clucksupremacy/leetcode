@@ -1,15 +1,16 @@
 const isPalindrome = function(x) {
-    let string = x.toString();
-
-    for (i = 0; i < string.length; i++) {
-        first_digit = string[i];
-        last_digit = string[string.length - (i + 1)];
-
-        if (first_digit !== last_digit) {
-            return false;
-        } else {
-
-        }
+    if (x < 0) {
+        return false;
     }
-    return true;
+
+    let y = x % 10;
+    let a = x;
+
+    while (a >= 10) {
+        a = Math.floor(a / 10);
+        let remainder = a % 10;
+        y = y * 10 + remainder;
+    }
+
+    return (y === x);
 };
